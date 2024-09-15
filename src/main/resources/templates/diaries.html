@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diary</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/sidebar.css?version=1">
+    <link rel="stylesheet" href="/css/diaries.css?version=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+</head>
+<body>
+<div class="wrapper">
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button class="toggle-btn" type="button">
+                <i class="lni lni-grid-alt"></i>
+            </button>
+            <div class="sidebar-logo">
+                <p  style="font-family: 'Lucida Handwriting', cursive;">Dear Diary</p>
+            </div>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="/profile" class="sidebar-link">
+                    <i class="lni lni-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="/diaries" class="sidebar-link">
+                    <i class="bi bi-book"></i>
+                    <span>Diary</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="/todos" class="sidebar-link">
+                    <i class="bi bi-card-checklist"></i>
+                    <span>Planner</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="/notes" class="sidebar-link">
+                    <i class="bi bi-journal-text"></i>
+                    <span>Notes</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="sidebar-link">
+                <i class="lni lni-exit"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+
+    <div class="main p-3" style="background-image: url('/img/paper.jpg'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-12 text-center">
+                    <h2 class="p1">Hello <span th:text="${user.getName()}"></span>, write about your day!</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="d-flex flex-column align-items-center mb-3">
+                    <p class="large-icon" style="margin-right: 40px">Record your day in just one tap
+                            <a href="/diaries/add">
+                                <i class="bi bi-file-plus large-icon"></i>
+                            </a>
+                        </p>
+                        <div class="container mt-3">
+
+                            <!-- <button type="button" class="btn btn-secondary" style="padding: 10px" onclick="setTitleAndSubmit('My Day')">My Day</button>-->
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="sr-only">Today I Will Write About</span>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#" onclick="setTitleAndSubmit('My Daily Workout Plan')">My Daily Workout Plan</a>
+                                    <a class="dropdown-item" href="#" onclick="setTitleAndSubmit('My Daily Meal Plan')">My Daily Meal Plan</a>
+                                    <a class="dropdown-item" href="#" onclick="setTitleAndSubmit('Today I feel..')">Reflect On How You Feel</a>
+                                    <a class="dropdown-item" href="#" onclick="setTitleAndSubmit('Today I\'m grateful for')">Express Your Gratitude</a>
+                                </div>
+                            </div>
+                        </div>
+                        <form action="/diaries" method="GET" class="f">
+                            <div class="form-group mt-3 text-center"  style="margin-right: 100px;" >
+                                <label for="selectedDate" class="mt-2 ">Revisit Your Previous Days</label>
+                                <div class="d-flex justify-content-center align-items-center" >
+                                    <input type="date" id="selectedDate" name="selectedDate"
+                                           value="${selectedDate != null ? #dates.format(selectedDate, 'yyyy-MM-dd') : ''}"
+                                           class="form-control mr-2" style="width: 150px; margin-right: 20px" >
+                                    <button type="submit" class="btn btn-primary">Go there</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div th:if="${diaries.size() > 0}">
+                        <div th:each="diary : ${diaries}" class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-date" th:text="${#temporals.format(diary.date, 'MMMM dd, yyyy')}"></h5>
+                                <p class="card-title" th:text="${diary.getTitle()}"></p>
+                                <p class="card-text" th:text="${diary.getContent()}"></p>
+                                <div class="text-center mt-2">
+                                    <form th:method="POST" th:action="@{'/diaries/' + ${diary.getId()} + '/delete'}" class="d-inline">
+                                        <button class="btn btn-danger mr-2">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </form>
+                                    <a th:href="@{'/diaries/edit/' + ${diary.getId()}}" class="btn btn-outline-dark">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div th:unless="${diaries.size() > 0}">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <p>Nothing for this date... Start Writing!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectedDateInput = document.getElementById('selectedDate');
+
+        if (!selectedDateInput.value) {
+            const today = new Date().toISOString().slice(0, 10);
+            selectedDateInput.value = today;
+        }
+
+        selectedDateInput.addEventListener('change', function() {
+            const selectedDate = selectedDateInput.value;
+            selectedDateInput.value = selectedDate;
+        });
+    });
+
+</script>
+<script src="/js/script.js"></script>
+<script>
+    function setTitleAndSubmit(title) {
+        const form = document.createElement('form');
+        form.method = 'GET';
+        form.action = '/diaries/add';
+
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = 'title';
+        hiddenField.value = title;
+
+        form.appendChild(hiddenField);
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+</body>
+</html>

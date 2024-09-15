@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearDiary</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="/img/logo1.png" type="image/x-icon">
+</head>
+<body>
+<img src="/img/login.jpg" id="myImg">
+<div class="wrapper">
+    <form method="post" action="/login">
+        <h1>Login</h1>
+        <div class="input-box">
+            <input type="text"  name="username" placeholder="Username" class="input" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Password"  name="password" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <!--<div class="remember-forgot">
+            <label><input type="checkbox">Remember Me</label>
+        </div>-->
+        <button type="submit" class="btn">Login</button>
+
+    </form>
+    <div class="register-link">
+        <p>Don't have an account? <a href="/register">Register</a></p>
+    </div>
+    <th:block th:if="(${error}!=null)">
+        <div class="input-field" style="margin-top: 20px">
+            <label style="color: darkred; font-weight: bold; font-size: 14px">Warning:</label>
+            <label th:text="${error}" style="color: floralwhite; font-weight: bold; font-size: 14px"></label>
+        </div>
+    </th:block>
+
+</div>
+
+</body>
+</html>

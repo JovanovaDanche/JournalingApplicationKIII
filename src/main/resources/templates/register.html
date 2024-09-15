@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DearDiary</title>
+    <link rel="stylesheet" href="/css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="icon" href="/img/logo1.png" type="image/x-icon">
+</head>
+<body>
+<img src="/img/login.jpg" id="myImg">
+<div class="wrapper">
+    <form method="post" action="/register">
+        <h1>Register</h1>
+        <div class="input-box">
+            <input type="text"  name="name" placeholder="Name" class="input" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="text"  name="surname" placeholder="Surname" class="input" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="text"  name="email" placeholder="Email" class="input" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="text"  name="username" placeholder="Username" class="input" required>
+            <i class='bx bxs-user'></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="Password"  name="password" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+        <div class="input-box">
+            <input type="password" placeholder="ConfirmPassword"  name="rpassword" required>
+            <i class='bx bxs-lock-alt' ></i>
+        </div>
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <div class="bottom">
+        <div class="register-link">
+            <input type="checkbox"  id="check" required>
+            <label>I accept the<a href="#" class="terms"> Terms of Use</a> and <a href="#" class="terms">Privacy Policy</a> </label>
+        </div>
+    </div>
+    <th:block th:if="(${error}!=null)">
+        <div class="input-field" style="margin-top: 20px">
+            <label style="color: darkred; font-weight: bold; font-size: 14px">Warning:</label>
+            <label th:text="${error}" style="color: floralwhite; font-weight: bold; font-size: 14px"></label>
+        </div>
+    </th:block>
+
+</div>
+
+</body>
+</html>

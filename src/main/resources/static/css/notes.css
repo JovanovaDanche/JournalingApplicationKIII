@@ -1,0 +1,40 @@
+
+.large-icon {
+    font-size: 20px;
+    color:#A0522D;
+
+}
+
+h1 {
+    font-size: 2.5rem; /* Adjust the size as needed */
+    color: #333; /* Dark text color */
+    font-family: 'Georgia', serif; /* Elegant serif font */
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 50px; /* Adjust width as needed */
+    height: 3px; /* Adjust height as needed */
+    background-color: #A0522D; /* Match the span color */
+    margin: 0.5rem auto 0; /* Center the underline */
+    border-radius: 3px; /* Rounded edges for a softer look */
+}
+.autocomplete-suggestions {
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    width: 300px;
+}
+
+.autocomplete-suggestion {
+    cursor: pointer;
+}
+.autocomplete-suggestion:hover {
+    background-color:white ;
+}

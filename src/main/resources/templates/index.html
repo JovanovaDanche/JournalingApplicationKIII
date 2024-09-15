@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>DearDiary</title>
+    <link rel="icon" href="/img/logo1.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+<div class="hero">
+    <video autoplay loop muted playsinline class="back-video">
+        <source src="/video/videoBackgroundJournal.mp4" type="video/mp4">
+    </video>
+    <nav>
+        <a href="/homepage">
+           <!-- <img src="/img/logo1.png" class="logo">-->
+        </a>
+
+        <ul>
+            <li><a href="/homepage">HOME</a></li>
+
+            <li><form th:method="post" action="/auth-status">
+                <a href="/login">LOGIN / REGISTER</a>
+            </form></li>
+
+        </ul>
+
+    </nav>
+
+    <div class="container">
+        <h1>Dear Diary</h1>
+        <p>Your journal will stand as a chronicle of your growth, your hopes, your fears, your dreams, your ambitions, your sorrows, your serendipities.</p>
+        <form th:method="post" action="/auth-status">
+            <button type="submit">Unfold your thoughts
+            </button>
+        </form>
+
+
+    </div>
+
+</div>
+
+<script src="/js/index.js"></script>
+
+</body>
+</html>

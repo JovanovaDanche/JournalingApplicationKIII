@@ -1,0 +1,262 @@
+
+.main {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    font-family: 'Georgia', serif;
+    color: #333;
+}
+
+/* Style the header */
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #8B4513;
+}
+
+/* Style for the buttons */
+.btn-secondary {
+    background-color: #8B4513;
+    border-color: #8B4513;
+    color: #fff;
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+    background-color: #A0522D;
+    border-color: #A0522D;
+}
+
+.btn-primary {
+    background-color: #CD853F;
+    border-color: #CD853F;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #D2691E;
+    border-color: #D2691E;
+
+}
+
+/* Style for the dropdown menu */
+.dropdown-menu {
+    background-color: #FFF8DC;
+    border: 1px solid #8B4513;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #8B4513;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    background-color: #FAEBD7;
+    color: #8B4513;
+}
+
+/* Style for the date picker */
+input[type="date"] {
+    border: 1px solid #8B4513;
+    padding: 5px 10px;
+    font-size: 1em;
+}
+
+
+.btn-danger {
+    background-color: #DC143C;
+    border: none;
+}
+
+.btn-danger:hover, .btn-danger:focus {
+    background-color: #FF6347;
+}
+
+.btn-outline-dark {
+    color: #333;
+    border: 1px solid #333;
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus {
+    color: #fff;
+    background-color: #333;
+    border: 1px solid #333;
+}
+
+
+.large-icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: #A0522D;
+    font-family: 'Georgia', serif;
+
+
+}
+
+h2.p1 {
+    font-size: 2.5rem;
+    color: #333;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    position: relative;
+}
+
+h2.p1 span {
+    color: #A0522D;
+    font-weight: bold;
+}
+
+h2.p1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #A0522D;
+    margin: 0.5rem auto 0;
+    border-radius: 3px;
+}
+
+.btn-group{
+    padding-top: 20px;
+}
+label[for="selectedDate"] {
+    font-size: 20px;
+    font-weight: bold;
+    color: #A0522D;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    display: block;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    line-height: 1.4;
+    position: relative;
+
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Form and button styling */
+.form-control {
+    width: 150px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-control:focus {
+    border-color: #A0522D;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #A0522D;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #D2B48C;
+}
+
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+
+.mb-3 {
+    margin-bottom: 1rem;
+}
+
+
+.card {
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #333;
+    font-family: 'Georgia', serif;
+    position: relative;
+    line-height: 1.4;
+    margin: 0.5rem auto 0;
+    display: block;
+}
+
+.card-date {
+    font-size: 1.5rem;
+    color: #333;
+    font-family: 'Georgia', serif;
+    position: relative;
+    line-height: 1.4;
+    margin: 0.5rem auto 0;
+    display: block;
+}
+
+.card-date::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    opacity: 70%;
+    background-color: #A0522D;
+    margin: 0.5rem auto 0;
+    border-radius: 3px;
+}
+
+.card-text {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .form-control {
+        width: 100%;
+    }
+
+    .card-text {
+        font-size: 0.875rem;
+    }
+
+    .btn {
+        font-size: 0.875rem;
+        padding: 20rem;
+    }
+
+}
