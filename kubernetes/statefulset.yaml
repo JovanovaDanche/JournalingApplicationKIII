@@ -1,10 +1,10 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: postgres
+  name: postgres-statefulset
   namespace: journalingapp
 spec:
-  serviceName: "postgres-service"
+  serviceName: "postgres"
   replicas: 1
   selector:
     matchLabels:
