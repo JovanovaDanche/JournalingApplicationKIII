@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deployment
+  name: backend-deployment
   namespace: journalingapp
 spec:
   replicas: 1
